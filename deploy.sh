@@ -47,7 +47,8 @@ if ! command -v lftp &> /dev/null; then
 fi
 
 # Fråga efter FTP-uppgifter
-echo -e "${BLUE}🔐 FTP-inloggning för chol.se${NC}"
+echo -e "${BLUE}🔐 FTP-inloggning${NC}"
+read -p "FTP Server (t.ex. ftp.chol.se): " FTP_SERVER
 read -p "Användarnamn: " FTP_USER
 
 # Läs lösenord utan att visa det
@@ -56,13 +57,10 @@ read -s FTP_PASS
 echo
 
 # Validera att uppgifter är ifyllda
-if [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
-    echo -e "${RED}❌ Användarnamn och lösenord krävs.${NC}"
+if [ -z "$FTP_SERVER" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
+    echo -e "${RED}❌ Server, användarnamn och lösenord krävs.${NC}"
     exit 1
 fi
-
-# FTP-server och sökväg
-FTP_SERVER="ftp.chol.se"
 REMOTE_DIR="rlng"
 LOCAL_DIR="."
 

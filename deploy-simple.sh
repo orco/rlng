@@ -23,21 +23,22 @@ if [ ! -f "index.html" ]; then
 fi
 
 # FTP-uppgifter
+read -p "FTP Server (t.ex. ftp.chol.se): " FTP_SERVER
 read -p "FTP Användarnamn: " FTP_USER
 echo -n "FTP Lösenord: "
 read -s FTP_PASS
 echo
 
-if [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
-    echo -e "${RED}❌ Användarnamn och lösenord krävs.${NC}"
+if [ -z "$FTP_SERVER" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
+    echo -e "${RED}❌ Server, användarnamn och lösenord krävs.${NC}"
     exit 1
 fi
 
-echo -e "${YELLOW}📡 Laddar upp filer till ftp.chol.se/rlng...${NC}"
+echo -e "${YELLOW}📡 Laddar upp filer till $FTP_SERVER/rlng...${NC}"
 
 # Skapa FTP-kommandofil
 cat > /tmp/ftp_commands << EOF
-open ftp.chol.se
+open $FTP_SERVER
 user $FTP_USER $FTP_PASS
 binary
 mkdir rlng

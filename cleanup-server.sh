@@ -28,17 +28,18 @@ fi
 
 # FTP-uppgifter
 echo -e "${BLUE}🔐 FTP-inloggning för cleanup${NC}"
+read -p "FTP Server (t.ex. ftp.chol.se): " FTP_SERVER
 read -p "Användarnamn: " FTP_USER
 echo -n "Lösenord: "
 read -s FTP_PASS
 echo
 
-if [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
-    echo -e "${RED}❌ Användarnamn och lösenord krävs.${NC}"
+if [ -z "$FTP_SERVER" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
+    echo -e "${RED}❌ Server, användarnamn och lösenord krävs.${NC}"
     exit 1
 fi
 
-echo -e "${YELLOW}🧹 Rensar onödiga filer från servern...${NC}"
+echo -e "${YELLOW}🧹 Rensar onödiga filer från $FTP_SERVER...${NC}"
 
 # Cleanup-kommando
 lftp -c "
@@ -47,7 +48,7 @@ set ssl:verify-certificate no
 set ftp:passive-mode on
 set net:timeout 30
 
-open ftp://$FTP_USER:$FTP_PASS@ftp.chol.se
+open ftp://$FTP_USER:$FTP_PASS@$FTP_SERVER
 
 # Gå till rlng-katalog
 cd rlng

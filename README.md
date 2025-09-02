@@ -149,7 +149,7 @@ För teknisk support eller frågor om webbplatsen:
 
 ### FTP-Deploy Scripts
 
-Projektet innehåller tre deploy-script för att ladda upp webbplatsen till ftp.chol.se:
+Projektet innehåller tre deploy-script för att ladda upp webbplatsen till valfri FTP-server:
 
 #### 1. Avancerat Script (`deploy.sh`)
 **Rekommenderas** - Använder `lftp` för intelligent synkronisering:
@@ -200,13 +200,25 @@ Använder standard `ftp`-klient (finns på alla system):
    ```
 
 2. **Ange FTP-uppgifter:**
-   - Användarnamn för chol.se
+   - FTP Server (t.ex. ftp.chol.se, ftp.one.com, etc.)
+   - Användarnamn för din hosting-leverantör
    - Lösenord (visas inte när du skriver)
 
 3. **Vänta på uppladdning:**
    - Scriptet skapar automatiskt `/rlng` mappen
    - Laddar upp alla webbfiler
    - Visar progress och resultat
+
+### Vanliga FTP-servrar:
+
+| Hosting-leverantör | FTP Server | Noteringar |
+|-------------------|------------|------------|
+| **Chol.se** | `ftp.chol.se` | Använd ditt Chol-konto |
+| **One.com** | `ftp.one.com` | Använd ditt One.com-konto |
+| **Binero** | `ftp.binero.se` | Eller `ftp.verktyg.binero.se` |
+| **Loopia** | `ftp.loopia.se` | Använd ditt Loopia-konto |
+| **Webhallen** | `ftp.webhallen.com` | Hosting via Webhallen |
+| **GleSYS** | `ftp.glesys.se` | GleSYS hosting |
 
 ### Felsökning Deploy:
 
@@ -217,7 +229,7 @@ Använder standard `ftp`-klient (finns på alla system):
 - **Lösning:** Kontrollera FTP-uppgifter och att kontot har skrivbehörighet
 
 **Problem:** "Connection failed"
-- **Lösning:** Kontrollera internetanslutning och att ftp.chol.se är tillgängligt
+- **Lösning:** Kontrollera internetanslutning och att FTP-servern är tillgänglig
 
 ---
 
