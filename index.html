@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running Lights - Sveriges mysigaste lopp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>Running Lights</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hem">Hem</a></li>
+                <li><a href="#vara-lopp">Våra lopp</a></li>
+                <li><a href="#etapper">Etapper</a></li>
+                <li><a href="#deltagarinfo">Deltagarinfo</a></li>
+                <li><a href="#anmalan">Anmälan</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Countdown -->
+    <section class="hero" id="hem">
+        <div class="hero-content">
+            <div class="countdown-container">
+                <h2 class="event-date">11 oktober</h2>
+                <h3 class="event-year">2025</h3>
+                
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span id="days">0</span>
+                        <label>Dagar</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">0</span>
+                        <label>Timmar</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">0</span>
+                        <label>Minuter</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">0</span>
+                        <label>Sekunder</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="route-visualization">
+                <div class="location-markers">
+                    <div class="marker start">Alingsås</div>
+                    <div class="route-line"></div>
+                    <div class="marker checkpoint">Centrum</div>
+                    <div class="route-line"></div>
+                    <div class="marker checkpoint">Nolhaga Park</div>
+                    <div class="route-line"></div>
+                    <div class="marker finish">Målgång</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Event Description -->
+    <section class="event-description">
+        <div class="container">
+            <h2>Sveriges mysigaste lopp under Lights in Alingsås</h2>
+            <p>Running Lights är ett magiskt löparevent som äger rum under den berömda ljusfestivalen Lights in Alingsås. Vi erbjuder distanser för alla - från Knatteloppet för de yngsta till 10km för de mer erfarna löparna.</p>
+            
+            <div class="distances-grid">
+                <a href="https://raceid.com/sv/organizers/4436/events/17688/registrations/new?race_id=44871" target="_blank" class="distance-card-link">
+                    <div class="distance-card">
+                        <h3>Knatteloppet</h3>
+                        <p>För våra yngsta löpare</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+                <a href="https://raceid.com/sv/organizers/4436/events/17688/registrations/new?race_id=44872" target="_blank" class="distance-card-link">
+                    <div class="distance-card">
+                        <h3>Energiloppet</h3>
+                        <p>Perfekt för juniorer</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+                <a href="https://raceid.com/sv/organizers/4436/events/17688/registrations/new?race_id=44873" target="_blank" class="distance-card-link">
+                    <div class="distance-card">
+                        <h3>Ungdomsloppet</h3>
+                        <p>För tonåringar</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+                <a href="https://raceid.com/sv/organizers/4436/events/17688/registrations/new?race_id=44874" target="_blank" class="distance-card-link">
+                    <div class="distance-card">
+                        <h3>Stafett</h3>
+                        <p>Spring tillsammans</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+                <a href="https://raceid.com/sv/organizers/4436/events/17688/registrations/new?race_id=44875" target="_blank" class="distance-card-link">
+                    <div class="distance-card">
+                        <h3>5km</h3>
+                        <p>Klassisk distans</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+                <a href="https://raceid.com/sv/organizers/4436/events/17688/registrations/new?race_id=44876" target="_blank" class="distance-card-link">
+                    <div class="distance-card">
+                        <h3>10km</h3>
+                        <p>Utmaning för erfarna</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="cta-section">
+                <a href="https://raceid.com/sv/organizers/4436/events/17688" target="_blank" class="cta-button">Anmälan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="vara-lopp">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>En löparfest i magisk belysning</h3>
+                    <p>Running Lights äger rum under Lights in Alingsås - Sveriges mest spektakulära ljusfestival. Upplev magiska Alingsås medan du springer genom vackert upplysta miljöer.</p>
+                </div>
+                <div class="feature">
+                    <h3>Distanser för alla</h3>
+                    <p>Från Knatteloppet för de yngsta till 10km för de mer erfarna. Ta med barnen, familjen, vännerna eller kollegorna och välj en distans som passar just dig.</p>
+                </div>
+                <div class="feature">
+                    <h3>Del av Västsvenska löparcupen</h3>
+                    <p>Running Lights är en del av Västsvenska löparcupen. För att delta i cupen krävs att du tävlar för en förening som tillhör Västergötlands friidrottsförbund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration" id="anmalan">
+        <div class="container">
+            <h2>Anmälan öppnad för 2025!</h2>
+            <p>Knatteloppet, Energiloppet, Ungdomsloppet, Stafett, 5km eller 10km - vilken är din distans?</p>
+            <p><strong>Väl mött 11/10!</strong></p>
+            
+            <div class="registration-info">
+                <p>Allt du behöver veta inför, under och efter loppet finner du via vår samarbetspartner RaceID.</p>
+                <a href="https://raceid.com/sv/organizers/4436/events/17688" target="_blank" class="cta-button">Anmäl dig redan idag!</a>
+            </div>
+            
+            <div class="results-link">
+                <p>Resultat från loppet 2024 finns <a href="https://my.raceresult.com/304712/" target="_blank">här</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h3>Running Lights Nyhetsbrev</h3>
+            <p>Signa upp dig på vårt nyhetsbrev och ta del av viktig och löpnyttig information.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Epostadress" required>
+                <button type="submit">GO</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="kontakt">
+        <div class="container">
+            <h2>Fånga oss om du springer!</h2>
+            <p>Vi är här för att svara på dina frågor och stödja dig i din löparresa. Skicka oss ett meddelande idag!</p>
+            
+            <div class="contact-info">
+                <div class="contact-details">
+                    <p><strong>Alingsås IF kansli</strong></p>
+                    <p>Lövekullevägen 21, 441 44 Alingsås, Sweden</p>
+                    <p>+46 (0) 709 71 19 06</p>
+                    <p>info@runninglights.se</p>
+                </div>
+                
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Namn *" required>
+                    <input type="email" name="email" placeholder="E-post *" required>
+                    <input type="text" name="subject" placeholder="Ämne *" required>
+                    <textarea name="message" placeholder="Meddelande *" rows="5" required></textarea>
+                    <button type="submit">Skicka meddelande</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Running Lights</h4>
+                    <p>Sveriges mysigaste lopp</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#hem">Hem</a></li>
+                        <li><a href="#vara-lopp">Våra lopp</a></li>
+                        <li><a href="#anmalan">Anmälan</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>+46 (0) 709 71 19 06</p>
+                    <p>info@runninglights.se</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
