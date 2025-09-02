@@ -332,6 +332,193 @@ body {
     background: linear-gradient(135deg, #ffed4a 0%, #ffd700 100%);
 }
 
+/* Information Section */
+.information {
+    padding: 80px 20px;
+    background: #f8f9fa;
+}
+
+.information h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.information > .container > p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #666;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: #ffd700;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+/* Info Buttons */
+.info-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.info-button:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+    border-color: #ffd700;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+}
+
+.info-button span {
+    font-size: 1.5rem;
+    min-width: 30px;
+}
+
+.info-button small {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+}
+
+/* Pickup Info */
+.pickup-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pickup-option {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #ffd700;
+}
+
+.pickup-option h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.pickup-option p {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.pickup-option p:last-child {
+    margin-bottom: 0;
+}
+
+.pickup-divider {
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.pickup-divider::before,
+.pickup-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: #ddd;
+}
+
+.pickup-divider::before {
+    left: 0;
+}
+
+.pickup-divider::after {
+    right: 0;
+}
+
+/* Event Info */
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.event-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #ffd700;
+}
+
+.event-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.event-item p {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.event-item p:last-child {
+    margin-bottom: 0;
+}
+
+.event-link {
+    display: inline-block;
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.event-link:hover {
+    color: #1a1a1a;
+}
+
 /* Features Section */
 .features {
     padding: 80px 20px;
@@ -653,6 +840,30 @@ body {
     .contact-info {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .info-buttons {
+        gap: 1rem;
+    }
+    
+    .info-button {
+        padding: 1.25rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .pickup-details {
+        gap: 1rem;
+    }
+    
+    .event-details {
+        gap: 1.5rem;
     }
     
     .newsletter-form {

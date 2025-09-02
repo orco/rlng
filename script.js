@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe elements for animation
-    document.querySelectorAll('.distance-card, .feature, .countdown-item').forEach(el => {
+    document.querySelectorAll('.distance-card, .feature, .countdown-item, .info-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -242,6 +242,15 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             // Track button clicks (implement with your analytics solution)
             console.log('CTA button clicked:', this.textContent);
+        });
+    });
+    
+    // Add click tracking for info buttons
+    document.querySelectorAll('.info-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const buttonText = this.textContent.trim();
+            console.log('Info button clicked:', buttonText);
+            // Track info button clicks (implement with your analytics solution)
         });
     });
     

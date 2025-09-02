@@ -19,6 +19,10 @@ Denna webbplats är skapad för att marknadsföra Running Lights 2025 som äger 
 - `index.html` - Huvudsidan med all innehåll
 - `styles.css` - All styling och responsiv design
 - `script.js` - JavaScript för interaktivitet och nedräkningstimer
+- `rl2025.pdf` - Officiell informationsbroschyr för Running Lights 2025
+- `deploy.sh` - Avancerat FTP-deploy script med synkronisering
+- `deploy-safe.sh` - Säkert och robust FTP-deploy script (REKOMMENDERAS)
+- `deploy-simple.sh` - Enkelt FTP-deploy script
 - `README.md` - Denna fil
 
 ### Funktioner
@@ -46,6 +50,7 @@ Denna webbplats är skapad för att marknadsföra Running Lights 2025 som äger 
      - `index.html`
      - `styles.css`
      - `script.js`
+     - `rl2025.pdf`
 
 4. **Kontrollera filrättigheter**
    - Se till att filerna har rätt rättigheter (644 för filer)
@@ -137,6 +142,82 @@ const eventDate = new Date('2025-10-11T10:00:00').getTime();
 För teknisk support eller frågor om webbplatsen:
 - **E-post:** info@runninglights.se
 - **Telefon:** +46 (0) 709 71 19 06
+
+---
+
+## Automatisk Deploy
+
+### FTP-Deploy Scripts
+
+Projektet innehåller tre deploy-script för att ladda upp webbplatsen till ftp.chol.se:
+
+#### 1. Avancerat Script (`deploy.sh`)
+**Rekommenderas** - Använder `lftp` för intelligent synkronisering:
+
+```bash
+./deploy.sh
+```
+
+**Fördelar:**
+- ✅ Laddar endast upp ändrade filer
+- ✅ Tar bort filer som inte längre finns lokalt
+- ✅ Robust felhantering
+- ✅ Detaljerad progress-information
+- ✅ Automatisk installation av lftp om det saknas
+
+#### 2. Säkert Script (`deploy-safe.sh`) ⭐ REKOMMENDERAS
+Robust och säker version som alltid fungerar:
+
+```bash
+./deploy-safe.sh
+```
+
+**Fördelar:**
+- ✅ Enkel och pålitlig
+- ✅ Robust felhantering
+- ✅ Laddar upp alla viktiga filer
+- ✅ Fungerar även om katalogen redan finns
+- ✅ Inga komplexa regex eller synkronisering
+
+#### 3. Enkelt Script (`deploy-simple.sh`)
+Använder standard `ftp`-klient (finns på alla system):
+
+```bash
+./deploy-simple.sh
+```
+
+**Fördelar:**
+- ✅ Fungerar utan extra paket
+- ✅ Enkel och pålitlig
+- ❌ Laddar upp alla filer varje gång
+
+### Användning:
+
+1. **Kör deploy-scriptet:**
+   ```bash
+   cd /path/to/rlng
+   ./deploy.sh
+   ```
+
+2. **Ange FTP-uppgifter:**
+   - Användarnamn för chol.se
+   - Lösenord (visas inte när du skriver)
+
+3. **Vänta på uppladdning:**
+   - Scriptet skapar automatiskt `/rlng` mappen
+   - Laddar upp alla webbfiler
+   - Visar progress och resultat
+
+### Felsökning Deploy:
+
+**Problem:** "lftp: command not found"
+- **Lösning:** Kör `deploy-simple.sh` istället eller installera lftp manuellt
+
+**Problem:** "Permission denied"
+- **Lösning:** Kontrollera FTP-uppgifter och att kontot har skrivbehörighet
+
+**Problem:** "Connection failed"
+- **Lösning:** Kontrollera internetanslutning och att ftp.chol.se är tillgängligt
 
 ---
 
