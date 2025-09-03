@@ -157,7 +157,8 @@
                 <div class="map-card">
                     <h3>Maxi-Knatte 300m</h3>
                     <div class="map-image-container">
-                        <img src="karta-maxi-knatte-300m.jpg" alt="Karta för Maxi-Knatte 300m" class="map-image" loading="lazy">
+                        <img src="karta-maxi-knatte-300m.jpg" alt="Karta för Maxi-Knatte 300m" class="map-image" loading="lazy" 
+                             data-large="karta-maxi-knatte-300m-big.jpg" onclick="openLightbox(this)">
                     </div>
                     <div class="map-details">
                         <p><strong>Starttid:</strong> 16:00</p>
@@ -169,7 +170,8 @@
                 <div class="map-card">
                     <h3>Energiloppet 600m</h3>
                     <div class="map-image-container">
-                        <img src="karta-energiloppet-600m.jpg" alt="Karta för Energiloppet 600m" class="map-image" loading="lazy">
+                        <img src="karta-energiloppet-600m.jpg" alt="Karta för Energiloppet 600m" class="map-image" loading="lazy"
+                             data-large="karta-energiloppet-600m-big.jpg" onclick="openLightbox(this)">
                     </div>
                     <div class="map-details">
                         <p><strong>Starttid:</strong> 16:30</p>
@@ -181,7 +183,8 @@
                 <div class="map-card">
                     <h3>Ungdomsloppet 1660m</h3>
                     <div class="map-image-container">
-                        <img src="karta-ungdomsloppet-stafett-1660m.jpg" alt="Karta för Ungdomsloppet 1660m" class="map-image" loading="lazy">
+                        <img src="karta-ungdomsloppet-stafett-1660m.jpg" alt="Karta för Ungdomsloppet 1660m" class="map-image" loading="lazy"
+                             data-large="karta-ungdomsloppet-stafett-1660m-big.jpg" onclick="openLightbox(this)">
                     </div>
                     <div class="map-details">
                         <p><strong>Starttid:</strong> 16:45</p>
@@ -193,7 +196,8 @@
                 <div class="map-card">
                     <h3>Stafetten 3 x 1660m</h3>
                     <div class="map-image-container">
-                        <img src="karta-ungdomsloppet-stafett-1660m.jpg" alt="Karta för Stafetten 3 x 1660m" class="map-image" loading="lazy">
+                        <img src="karta-ungdomsloppet-stafett-1660m.jpg" alt="Karta för Stafetten 3 x 1660m" class="map-image" loading="lazy"
+                             data-large="karta-ungdomsloppet-stafett-1660m-big.jpg" onclick="openLightbox(this)">
                     </div>
                     <div class="map-details">
                         <p><strong>Starttid:</strong> 17:05</p>
@@ -205,7 +209,8 @@
                 <div class="map-card">
                     <h3>5km</h3>
                     <div class="map-image-container">
-                        <img src="karta-5km-10km.jpg" alt="Karta för 5km" class="map-image" loading="lazy">
+                        <img src="karta-5km-10km.jpg" alt="Karta för 5km" class="map-image" loading="lazy"
+                             data-large="karta-5km-10km-big.jpg" onclick="openLightbox(this)">
                     </div>
                     <div class="map-details">
                         <p><strong>Starttid:</strong> 18:00</p>
@@ -217,7 +222,8 @@
                 <div class="map-card">
                     <h3>10km</h3>
                     <div class="map-image-container">
-                        <img src="karta-5km-10km.jpg" alt="Karta för 10km" class="map-image" loading="lazy">
+                        <img src="karta-5km-10km.jpg" alt="Karta för 10km" class="map-image" loading="lazy"
+                             data-large="karta-5km-10km-big.jpg" onclick="openLightbox(this)">
                     </div>
                     <div class="map-details">
                         <p><strong>Starttid:</strong> 19:00</p>
@@ -372,6 +378,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox for maps -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-image" class="lightbox-content" alt="Högupplöst karta">
+        <div class="lightbox-caption"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -304,9 +304,63 @@ function debounce(func, wait) {
     };
 }
 
+// Lightbox functionality for maps
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+    
+    // Get the high-resolution image path
+    const largeImageSrc = imgElement.getAttribute('data-large');
+    const altText = imgElement.getAttribute('alt');
+    
+    // Set the lightbox image
+    lightboxImage.src = largeImageSrc;
+    lightboxImage.alt = altText;
+    lightboxCaption.textContent = altText;
+    
+    // Show the lightbox
+    lightbox.style.display = 'block';
+    
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+    
+    // Add escape key listener
+    document.addEventListener('keydown', handleLightboxKeydown);
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none';
+    
+    // Restore body scrolling
+    document.body.style.overflow = 'auto';
+    
+    // Remove escape key listener
+    document.removeEventListener('keydown', handleLightboxKeydown);
+}
+
+function handleLightboxKeydown(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+}
+
+// Prevent lightbox from closing when clicking on the image
+document.addEventListener('DOMContentLoaded', function() {
+    const lightboxImage = document.getElementById('lightbox-image');
+    if (lightboxImage) {
+        lightboxImage.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+});
+
 // Export functions for potential external use
 window.RunningLights = {
     updateCountdown,
     formatTime,
-    debounce
+    debounce,
+    openLightbox,
+    closeLightbox
 };
