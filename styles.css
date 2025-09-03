@@ -588,7 +588,7 @@ body {
 .map-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -615,19 +615,7 @@ body {
     color: #1a1a1a;
 }
 
-/* Placeholder for missing images */
-.map-image-container::before {
-    content: "Karta kommer snart";
-    position: absolute;
-    font-size: 1.1rem;
-    color: #666;
-    font-weight: 500;
-}
 
-.map-image[src=""] + .map-image-container::before,
-.map-image:not([src]) + .map-image-container::before {
-    display: block;
-}
 
 /* Features Section */
 .features {
