@@ -519,10 +519,120 @@ body {
     color: #1a1a1a;
 }
 
+/* Maps Section */
+.maps {
+    padding: 80px 20px;
+    background: white;
+}
+
+.maps h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+}
+
+.maps > .container > p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #666;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.maps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.map-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.map-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: #ffd700;
+}
+
+.map-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 1.5rem 1.5rem 0;
+}
+
+.map-image-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border-top: 2px solid #e9ecef;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.map-card:hover .map-image {
+    transform: scale(1.05);
+}
+
+.map-details {
+    padding: 1.5rem;
+    background: #f8f9fa;
+}
+
+.map-details p {
+    margin-bottom: 0.8rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.map-details p:last-child {
+    margin-bottom: 0;
+}
+
+.map-details strong {
+    color: #1a1a1a;
+}
+
+/* Placeholder for missing images */
+.map-image-container::before {
+    content: "Karta kommer snart";
+    position: absolute;
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.map-image[src=""] + .map-image-container::before,
+.map-image:not([src]) + .map-image-container::before {
+    display: block;
+}
+
 /* Features Section */
 .features {
     padding: 80px 20px;
-    background: white;
+    background: #f8f9fa;
 }
 
 .features-grid {
@@ -798,16 +908,24 @@ body {
     }
     
     .countdown {
-        gap: 1rem;
+        gap: 0.8rem;
+        justify-content: space-between;
+        max-width: 100%;
     }
     
     .countdown-item {
-        padding: 1rem;
-        min-width: 80px;
+        padding: 0.8rem;
+        min-width: 70px;
+        flex: 1;
+        max-width: 22%;
     }
     
     .countdown-item span {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .countdown-item label {
+        font-size: 0.8rem;
     }
     
     .location-markers {
@@ -845,6 +963,15 @@ body {
     .info-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    .maps-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .map-image-container {
+        height: 250px;
     }
     
     .info-buttons {
@@ -886,8 +1013,19 @@ body {
         font-size: 2rem;
     }
     
+    .countdown-item {
+        padding: 0.6rem;
+        min-width: 60px;
+        flex: 1;
+        max-width: 23%;
+    }
+    
     .countdown-item span {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+    
+    .countdown-item label {
+        font-size: 0.75rem;
     }
     
     .container {
