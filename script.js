@@ -1,5 +1,19 @@
 // Running Lights JavaScript
 
+// Import transformers.js for semantic search
+import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1';
+
+// Configure transformers.js to use CDN models
+env.allowLocalModels = false;
+
+// Cosine similarity function
+function cosineSimilarity(vecA, vecB) {
+    const dotProduct = vecA.reduce((sum, a, i) => sum + a * vecB[i], 0);
+    const magnitudeA = Math.sqrt(vecA.reduce((sum, a) => sum + a * a, 0));
+    const magnitudeB = Math.sqrt(vecB.reduce((sum, b) => sum + b * b, 0));
+    return dotProduct / (magnitudeA * magnitudeB);
+}
+
 // Utility functions
 function formatTime(time) {
     return time.toString().padStart(2, '0');
@@ -74,12 +88,17 @@ class RunningLightsChatbot {
     constructor() {
         this.data = [];
         this.fuse = null;
+        this.embedder = null;
+        this.embeddings = [];
         this.isOpen = false;
         this.isLoading = false;
+        this.useEmbeddings = false;
+        this.modelLoading = false;
         
         this.initElements();
         this.loadData();
         this.bindEvents();
+        this.initEmbeddings();
     }
     
     initElements() {
@@ -253,6 +272,35 @@ class RunningLightsChatbot {
         }
     }
     
+    async initEmbeddings() {
+        try {
+            this.modelLoading = true;
+            console.log('Loading semantic search model...');
+            
+            // Load the embedding model (small and fast)
+            this.embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+            
+            console.log('Generating embeddings for FAQ...');
+            // Pre-compute embeddings for all questions and keywords
+            this.embeddings = await Promise.all(
+                this.data.map(async (item) => {
+                    // Combine question and keywords for better matching
+                    const text = `${item.question} ${item.keywords.join(' ')}`;
+                    const output = await this.embedder(text, { pooling: 'mean', normalize: true });
+                    return Array.from(output.data);
+                })
+            );
+            
+            this.useEmbeddings = true;
+            this.modelLoading = false;
+            console.log('✓ Semantic search ready! Chatbot is now super smart 🧠');
+        } catch (error) {
+            console.warn('Could not load embeddings model, falling back to Fuse.js:', error);
+            this.useEmbeddings = false;
+            this.modelLoading = false;
+        }
+    }
+    
     bindEvents() {
         this.toggle.addEventListener('click', () => this.toggleChat());
         this.sendBtn.addEventListener('click', () => this.sendMessage());
@@ -281,6 +329,13 @@ class RunningLightsChatbot {
             }, 10);
             this.chatIcon.classList.add('hidden');
             this.closeIcon.classList.remove('hidden');
+            
+            // Show status if model is loading
+            if (this.modelLoading && this.messages.children.length === 1) {
+                this.addBotMessage('⏳ Laddar smart sökmotor i bakgrunden... Du kan ställa frågor medan den laddar!');
+            } else if (this.useEmbeddings && this.messages.children.length === 1) {
+                this.addBotMessage('🧠 Smart sökning aktiverad! Jag förstår nu dina frågor bättre än någonsin.');
+            }
         } else {
             this.window.classList.remove('show');
             setTimeout(() => {
@@ -303,11 +358,12 @@ class RunningLightsChatbot {
         this.showTypingIndicator();
         this.isLoading = true;
         
-        // Simulate thinking time
-        await this.delay(800 + Math.random() * 1200);
+        // Simulate thinking time (shorter if using embeddings)
+        const thinkTime = this.useEmbeddings ? 300 + Math.random() * 500 : 800 + Math.random() * 1200;
+        await this.delay(thinkTime);
         
-        // Search for answer
-        const answer = this.searchAnswer(message);
+        // Search for answer (now async)
+        const answer = await this.searchAnswer(message);
         
         // Remove typing indicator and add bot response
         this.hideTypingIndicator();
@@ -315,7 +371,50 @@ class RunningLightsChatbot {
         this.isLoading = false;
     }
     
-    searchAnswer(query) {
+    async searchAnswer(query) {
+        // If embeddings are ready, use semantic search
+        if (this.useEmbeddings && this.embedder && this.embeddings.length > 0) {
+            return await this.semanticSearch(query);
+        }
+        
+        // Fall back to Fuse.js
+        return this.fuzzySearch(query);
+    }
+    
+    async semanticSearch(query) {
+        try {
+            // Generate embedding for user query
+            const output = await this.embedder(query, { pooling: 'mean', normalize: true });
+            const queryEmbedding = Array.from(output.data);
+            
+            // Calculate similarity with all FAQ embeddings
+            const similarities = this.embeddings.map((embedding, index) => ({
+                index,
+                similarity: cosineSimilarity(queryEmbedding, embedding),
+                item: this.data[index]
+            }));
+            
+            // Sort by similarity (highest first)
+            similarities.sort((a, b) => b.similarity - a.similarity);
+            
+            // Debug logging
+            console.log('🧠 Semantic search - Best match:', similarities[0].similarity.toFixed(3), 'for query:', query);
+            
+            // If similarity is high enough, return the answer
+            if (similarities[0].similarity > 0.5) {
+                return similarities[0].item.answer;
+            }
+            
+            // No good match found
+            return this.getDefaultResponse(query);
+        } catch (error) {
+            console.error('Error in semantic search:', error);
+            // Fall back to Fuse.js
+            return this.fuzzySearch(query);
+        }
+    }
+    
+    fuzzySearch(query) {
         if (!this.fuse) {
             return 'Ursäkta, jag laddar fortfarande min kunskapsbas. Försök igen om ett ögonblick.';
         }
@@ -323,9 +422,9 @@ class RunningLightsChatbot {
         // Search using Fuse.js
         const results = this.fuse.search(query);
         
-        // Debug logging to help troubleshoot
+        // Debug logging
         if (results.length > 0) {
-            console.log('Best match score:', results[0].score, 'for query:', query);
+            console.log('📝 Fuzzy search - Best match score:', results[0].score, 'for query:', query);
         }
         
         if (results.length > 0 && results[0].score < 0.7) {
