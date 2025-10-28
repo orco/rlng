@@ -36,9 +36,9 @@
     <section class="hero" id="hem">
         <div class="hero-content">
             <div class="countdown-container">
-                <h2 class="event-date">11 oktober</h2>
-                <h3 class="event-year">2025</h3>
-                
+                <h2 class="event-date">10 oktober</h2>
+                <h3 class="event-year">2026</h3>
+
                 <div class="countdown">
                     <div class="countdown-item">
                         <span id="days">0</span>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="route-visualization">
                 <div class="location-markers">
                     <div class="marker start">Alingsås</div>
@@ -256,7 +256,7 @@
                         <a href="https://raceid.com/sv/races/13275/registration" class="info-button" target="_blank">
                             <span>📝</span>
                             Anmälan
-                            <small>Anmäl dig till Running Lights 2025</small>
+                            <small>Anmäl dig till Running Lights 2026</small>
                         </a>
                     </div>
                 </div>
@@ -302,9 +302,9 @@
     <!-- Registration Section -->
     <section class="registration" id="anmalan">
         <div class="container">
-            <h2>Anmälan öppnad för 2025!</h2>
+            <h2>Anmälan öppnad för 2026!</h2>
             <p>Knatteloppet, Energiloppet, Ungdomsloppet, Stafett, 5km eller 10km - vilken är din distans?</p>
-            <p><strong>Väl mött 11/10!</strong></p>
+            <p><strong>Väl mött 10/10!</strong></p>
             
             <div class="registration-info">
                 <p>Allt du behöver veta inför, under och efter loppet finner du via vår samarbetspartner RaceID.</p>
@@ -389,6 +389,56 @@
         <div class="lightbox-caption"></div>
     </div>
 
+    <!-- Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <!-- Chatbot Toggle Button -->
+        <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Öppna chatbot">
+            <svg class="chatbot-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg class="close-icon hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <!-- Chatbot Window -->
+        <div id="chatbot-window" class="chatbot-window hidden">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <div class="chatbot-avatar">🏃‍♂️</div>
+                    <div>
+                        <h3>Running Lights Assistent</h3>
+                        <p>Ställ mig frågor om loppet!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-avatar">🏃‍♂️</div>
+                    <div class="message-content">
+                        <p>Hej! Jag är här för att hjälpa dig med frågor om Running Lights 2026. Fråga mig om vad som helst - datum, anmälan, distanser eller annat!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chatbot-input-container">
+                <input 
+                    type="text" 
+                    id="chatbot-input" 
+                    placeholder="Skriv din fråga här..."
+                    maxlength="200"
+                >
+                <button id="chatbot-send" aria-label="Skicka meddelande">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <script src="script.js"></script>
 </body>
 </html>
