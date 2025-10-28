@@ -216,9 +216,14 @@ class RunningLightsChatbot {
                     "keywords": ["sjukvård", "första hjälpen", "skada", "olycka", "vårdcentral", "bräcke diakoni"]
                 },
                 {
+                    "question": "Kan man anmäla sig till flera lopp?",
+                    "answer": "Ja, det går bra att anmäla sig till flera lopp! Många deltagare springer både 5 km och ungdomsloppet, eller kombinerar olika distanser. Se bara till att tiderna passar och att du har energi kvar! Du anmäler varje lopp separat via RaceID.",
+                    "keywords": ["flera lopp", "två lopp", "multiple", "anmäla flera", "delta flera", "båda loppen", "kombinera", "två distanser"]
+                },
+                {
                     "question": "Får man springa med hund?",
                     "answer": "Tyvärr nej. Av säkerhetsskäl och hänsyn till hundrädda deltagare tillåts inte hundar på loppet.",
-                    "keywords": ["hund", "djur", "husdjur", "tillåtet"]
+                    "keywords": ["hund", "djur", "husdjur", "tillåtet", "fiffi", "valp"]
                 },
                 {
                     "question": "Får man delta med rullstol?",
@@ -399,9 +404,11 @@ class RunningLightsChatbot {
             
             // Debug logging
             console.log('🧠 Semantic search - Best match:', similarities[0].similarity.toFixed(3), 'for query:', query);
+            console.log('   Matched question:', similarities[0].item.question);
             
             // If similarity is high enough, return the answer
-            if (similarities[0].similarity > 0.5) {
+            // Using 0.55 threshold to avoid false matches
+            if (similarities[0].similarity > 0.55) {
                 return similarities[0].item.answer;
             }
             
