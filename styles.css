@@ -265,13 +265,17 @@ body {
 .distance-card-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
     transition: all 0.4s ease;
+    position: relative;
+    height: 100%;
 }
 
 .distance-card {
     background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
     padding: 2.5rem;
+    min-height: 330px;
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     text-align: center;
@@ -300,13 +304,13 @@ body {
 .distance-card::after {
     content: '';
     position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
-    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-    border-radius: 17px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
     z-index: 1;
+    transition: all 0.4s ease;
 }
 
 .distance-card > * {
@@ -326,29 +330,19 @@ body {
     opacity: 0;
 }
 
-.distance-card-link:hover .distance-card::after {
-    background: rgba(255, 255, 255, 0.9);
-}
 
 .distance-card h3 {
     font-family: var(--primary-font);
     font-size: 1.7rem;
     margin-bottom: 1rem;
-    color: #1a1a1a;
+    color: #fff;
     transition: all 0.4s ease;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
-.distance-card p {
-    color: #666;
-    margin: 0;
-    margin-bottom: 1.5rem;
-    transition: all 0.4s ease;
-    font-size: 1.1rem;
-    font-weight: 500;
-}
 
 .card-arrow {
     position: absolute;
@@ -390,6 +384,73 @@ body {
 
 .distance-card {
     animation: cardPulse 3s ease-in-out infinite;
+}
+
+/* Distance card background images */
+.distance-card-knatteloppet::after {
+    background: url('Knatteloppet.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.distance-card-energiloppet::after {
+    background: url('Energiloppet.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.distance-card-ungdomsloppet::after {
+    background: url('Ungdomsloppet.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.distance-card-stafett::after {
+    background: url('Stafett.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.distance-card-5km::after {
+    background: url('5km.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.distance-card-10km::after {
+    background: url('10km.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Distance description styling */
+.distance-description {
+    color: #fff;
+    margin: 0;
+    margin-top: 1rem;
+    transition: all 0.4s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8), 1px 1px 1px rgba(0,0,0,1);
+    opacity: 0;
+    transform: translateY(-10px);
+    text-align: center;
+}
+
+.distance-card-link:hover .distance-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add overlay on hover for better text readability */
+.distance-card-link:hover .distance-card-knatteloppet::after,
+.distance-card-link:hover .distance-card-energiloppet::after,
+.distance-card-link:hover .distance-card-ungdomsloppet::after,
+.distance-card-link:hover .distance-card-stafett::after,
+.distance-card-link:hover .distance-card-5km::after,
+.distance-card-link:hover .distance-card-10km::after {
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: overlay;
 }
 
 /* CTA Section */

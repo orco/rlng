@@ -22,6 +22,16 @@ RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP_HOST} ^www\.runninglights\.se [NC]
 RewriteRule ^(.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Serve rlng subdirectory content from root
+# Root URL serves rlng/index.html
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /rlng/index.html [L]
+
+# All other requests (except rlng/) are served from rlng/
+RewriteCond %{REQUEST_URI} !^/rlng/
+RewriteCond %{DOCUMENT_ROOT}/rlng%{REQUEST_URI} -f
+RewriteRule ^(.*)$ /rlng/$1 [L]
+
 # 301 Redirect <directory>/index to <directory>/
 RedirectMatch 301 (.*)/index$ $1/
 
