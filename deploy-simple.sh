@@ -60,6 +60,7 @@ put karta-ungdomsloppet-stafett-1660m-big.jpg
 put karta-maxi-knatte-300m-big.jpg
 put karta-energiloppet-600m-big.jpg
 put karta-5km-10km-big.jpg
+put chatbot-data.json
 quit
 EOF
 

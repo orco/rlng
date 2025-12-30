@@ -138,6 +138,7 @@ if lftp -f /tmp/lftp_script; then
     echo "   • karta-maxi-knatte-300m-big.jpg"
     echo "   • karta-energiloppet-600m-big.jpg"
     echo "   • karta-5km-10km-big.jpg"
+    echo "   • chatbot-data.json"
     
 else
     echo -e "${RED}"

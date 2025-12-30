@@ -113,149 +113,12 @@ class RunningLightsChatbot {
     
     async loadData() {
         try {
-            // Embedded data to avoid CORS issues
-            this.data = [
-                {
-                    "question": "När är Running Lights 2026?",
-                    "answer": "Running Lights 2026 äger rum lördagen den 10 oktober 2026. Det är Sveriges mysigaste lopp som går under Lights in Alingsås ljusfestival.",
-                    "keywords": ["datum", "när", "2026", "10 oktober", "lördag", "tid"]
-                },
-                {
-                    "question": "Vilka distanser finns det?",
-                    "answer": "Vi erbjuder 6 olika distanser: Maxi-Knatteloppet (300m) för barn födda 2019 och senare, Energiloppet (600m) för barn födda 2015 och senare, Ungdomsloppet (1660m) för födda 2009 och senare, Stafett (3x1660m med 3 personer per lag), 5km och 10km. Det finns något för alla åldrar och nivåer!",
-                    "keywords": ["distanser", "lopp", "längd", "km", "meter", "knatteloppet", "maxi-knatteloppet", "energiloppet", "ungdomsloppet", "stafett"]
-                },
-                {
-                    "question": "Hur anmäler jag mig?",
-                    "answer": "Anmälan görs via RaceID på raceid.com/sv/races/13275 eller via RaceID-appen. Sista anmälningsdag till ordinarie pris är 20 september 2026. Efteranmälan kan göras online eller på plats på Estrad (Bryggerigatan 2) från kl 13:00 på tävlingsdagen, senast 60 minuter innan start.",
-                    "keywords": ["anmälan", "registrering", "anmäla", "raceid", "hur", "efteranmälan", "sista dag"]
-                },
-                {
-                    "question": "Var är start och mål?",
-                    "answer": "Start och mål är vid Stora torget i Alingsås centrum. Alla lopp startar och slutar på samma plats, vilket gör det enkelt för familj och vänner att heja på.",
-                    "keywords": ["start", "mål", "stora torget", "alingsås", "centrum", "var", "plats"]
-                },
-                {
-                    "question": "Vilka starttider gäller?",
-                    "answer": "Starttiderna är: Maxi-Knatteloppet 16:00, Energiloppet 16:30, Ungdomsloppet 16:45, Stafett 17:10, 5km 18:00, 10km 19:00. Alla tider är på lördagen den 10 oktober 2026.",
-                    "keywords": ["starttider", "tider", "klockan", "när startar", "schema"]
-                },
-                {
-                    "question": "Var hämtar jag nummerlappen?",
-                    "answer": "Du kan hämta din nummerlapp på två sätt: Fredag 9 oktober kl 16:30-18:00 på Mjörnvallen (Lövekullevägen 22), eller Lördag 10 oktober från kl 13:00 på Estrad (foajén, Bryggerigatan 2). Senast 1 timme innan din start. Ta med ditt startbevis/mejlbekräftelse och/eller startnummer.",
-                    "keywords": ["nummerlapp", "startkuvert", "hämta", "mjörnvallen", "estrad", "bryggerigatan", "lövekullevägen", "när", "var"]
-                },
-                {
-                    "question": "Kostar det något att delta?",
-                    "answer": "Ja, priserna varierar: Maxi-Knatte och Energiloppet är gratis vid tidig anmälan (t.o.m 20/9), 50 kr på loppdagen. Ungdomsloppet 100 kr (150 kr på loppdagen). Stafett 300 kr (500 kr på loppdagen). 5km: 350-450 kr (250-350 kr för under 18 år). 10km: 400-500 kr (250-350 kr för under 18 år). Tidig anmälan ger lägre pris!",
-                    "keywords": ["pris", "kostnad", "kostar", "avgift", "pengar", "billigt", "gratis", "anmälningsavgift"]
-                },
-                {
-                    "question": "Kan barn delta?",
-                    "answer": "Absolut! Vi har Maxi-Knatteloppet (300m) för barn födda 2019 och senare, och Energiloppet (600m) för barn födda 2015 och senare. Båda loppen är gratis vid tidig anmälan. Running Lights är ett familjevänligt event där alla åldrar är välkomna!",
-                    "keywords": ["barn", "knatteloppet", "energiloppet", "familj", "ålder", "juniorer", "yngsta", "gratis"]
-                },
-                {
-                    "question": "Vad är Lights in Alingsås?",
-                    "answer": "Lights in Alingsås är Sveriges mest spektakulära ljusfestival som äger rum samtidigt som vårt lopp. Du springer genom vår vackert upplysta stad och upplever Alingsås i ett helt nytt ljus!",
-                    "keywords": ["lights in alingsås", "ljusfestival", "ljus", "festival", "upplyst", "magiskt", "vackert"]
-                },
-                {
-                    "question": "Är det en del av någon löparserie?",
-                    "answer": "Ja! Running Lights är en del av Västsvenska löparcupen (tidigare Långloppscupen). För att delta i cupen krävs att du tävlar för en förening som tillhör Västergötlands friidrottsförbund. Den som uppger föreningsnamn vid anmälan ingår automatiskt.",
-                    "keywords": ["västsvenska löparcupen", "löparserie", "cup", "förening", "västergötland", "friidrottsförbund", "långloppscupen"]
-                },
-                {
-                    "question": "Finns det löparmässa?",
-                    "answer": "Ja! Löparmässa hålls för första gången i år med många utställare på Estrad. Den har fri entré och pågår mellan 10:00-18:00 på lördagen (samma plats där du hämtar ditt startnummer). Mer info på loparmassan.se",
-                    "keywords": ["löparmässa", "mässa", "utställare", "estrad", "fri entré", "lördag"]
-                },
-                {
-                    "question": "Vad är After Run?",
-                    "answer": "After Run är vår efterfest som startar kl 19:00 inne på Estrad efter loppet. Använd rabattkoden 'runninglights' och få 15% rabatt på din biljett. Mässutställarna delar ut fina utlottningspriser på ditt startnummer från 5 och 10 km-loppet runt kl 21:00 - fysisk närvaro och uppvisande av startnummer krävs!",
-                    "keywords": ["after run", "efterfest", "fest", "19:00", "rabattkod", "runninglights", "rabatt", "utlottning", "priser"]
-                },
-                {
-                    "question": "Hur kontaktar jag arrangörerna?",
-                    "answer": "Du kan kontakta oss via info@runninglights.se för frågor om loppet. För annan information kopplat till Alingsås IF Friidrott hänvisar vi till svenskalag.se/aif-friidrott/kontakt. Följ oss gärna på Instagram @Runninglightsloppet och Facebook @RunningLightsAlingsas!",
-                    "keywords": ["kontakt", "telefon", "email", "info@runninglights.se", "alingsås if", "instagram", "facebook"]
-                },
-                {
-                    "question": "Finns det parkeringsplatser?",
-                    "answer": "Ja, det finns parkeringsmöjligheter i Alingsås centrum nära start/mål-området vid Stora torget. Vi rekommenderar att komma i god tid då det kan vara mycket folk under ljusfestivalen.",
-                    "keywords": ["parkering", "bil", "parkeringsplatser", "centrum", "stora torget", "var parkera"]
-                },
-                {
-                    "question": "Vad händer om det regnar?",
-                    "answer": "Running Lights går av stapeln oavsett väder! Vi springer i regn och rusk. Klä dig efter vädret och kom förberedd. Loppet ställs endast in vid extrema väderförhållanden.",
-                    "keywords": ["väder", "regn", "rusk", "ställs in", "klädsel", "oavsett väder"]
-                },
-                {
-                    "question": "Får jag medalj och priser?",
-                    "answer": "Alla deltagare får medalj direkt efter målgång! Vinster tilldelas 1:a, 2:a och 3:e (dam och herr) i ungdomslopp, 5km och 10km. I stafetten tilldelas pris till bästa laget. Dessutom tilldelas priser till de 3 bästa i varje tävlingsklass samt utlottningspriser. Prisutdelning sker på Stora Torget strax efter varje lopp.",
-                    "keywords": ["medalj", "priser", "vinst", "prisutdelning", "1:a", "2:a", "3:e", "utlottning"]
-                },
-                {
-                    "question": "Hur fungerar tidtagningen?",
-                    "answer": "Tidtagningen sker med chip som sitter fast på nummerlappen. Chiptidtagningen innebär att alla får en nettotid från det att man passerar startlinjen. Resultatlistan publiceras på my.raceresult.com så snart som möjligt efter loppet, samt på raceid.com/sv/races/13275 med viss fördröjning. OBS: Ingen tidtagning sker på knatte- och energiloppen.",
-                    "keywords": ["tidtagning", "chip", "resultat", "nettotid", "raceresult", "tid"]
-                },
-                {
-                    "question": "Finns det omklädningsrum och dusch?",
-                    "answer": "Ja! Det finns möjlighet till ombyte och dusch i hallen Estrad för anmälda löpare. Ingången är på sidan av Estrads byggnad (ej huvudentré/foajé) vid Södra Ringgatan mitt mot järnvägsspåren. Kod till entrédörr mailas ut under loppveckan och finns även inne på Estrads foajé.",
-                    "keywords": ["omklädning", "dusch", "ombyte", "estrad", "omklädningsrum", "kod"]
-                },
-                {
-                    "question": "Finns det väskinlämning?",
-                    "answer": "Ja, det finns väskinlämning/värdeförvaring på start-/målplatsen på Stora Torget. Inlämning sker på eget ansvar och risk.",
-                    "keywords": ["väska", "väskinlämning", "värdeförvaring", "stora torget", "förvaring"]
-                },
-                {
-                    "question": "Finns det sjukvård på plats?",
-                    "answer": "Ja! Vi har sjukvård på plats från Vårdcentralen Centrum Bräcke Diakoni. Det finns ett sjukvårdstält på eventområdet (Stora Torget) i nära anslutning till målgången som man själv kan uppsöka. De hjälper till med allt som kan hända före, under och efter loppet.",
-                    "keywords": ["sjukvård", "första hjälpen", "skada", "olycka", "vårdcentral", "bräcke diakoni"]
-                },
-                {
-                    "question": "Kan man anmäla sig till flera lopp?",
-                    "answer": "Ja, det går bra att anmäla sig till flera lopp! Många deltagare springer både 5 km och ungdomsloppet, eller kombinerar olika distanser. Se bara till att tiderna passar och att du har energi kvar! Du anmäler varje lopp separat via RaceID.",
-                    "keywords": ["flera lopp", "två lopp", "multiple", "anmäla flera", "delta flera", "båda loppen", "kombinera", "två distanser"]
-                },
-                {
-                    "question": "Får man springa med hund?",
-                    "answer": "Tyvärr nej. Av säkerhetsskäl och hänsyn till hundrädda deltagare tillåts inte hundar på loppet.",
-                    "keywords": ["hund", "djur", "husdjur", "tillåtet", "fiffi", "valp"]
-                },
-                {
-                    "question": "Får man delta med rullstol?",
-                    "answer": "Absolut! Håll dig gärna till slutet av startfältet av säkerhetsskäl då det kan vara trångt i starten.",
-                    "keywords": ["rullstol", "funktionsnedsättning", "tillgänglighet", "handikapp"]
-                },
-                {
-                    "question": "Får man springa med barnvagn?",
-                    "answer": "Ja, det går fint om man startar sist i startfältet och självklart visar hänsyn till övriga deltagare då det kan vara trångt.",
-                    "keywords": ["barnvagn", "baby", "spädbarn", "joggingvagn"]
-                },
-                {
-                    "question": "Finns det vatten på banan?",
-                    "answer": "Ja, vatten finns vid målgång samt vid varvningen på 10 km loppet.",
-                    "keywords": ["vatten", "dryck", "vätska", "förfriskningar", "vätskestation"]
-                },
-                {
-                    "question": "Var finns toaletter?",
-                    "answer": "Toaletter finns tillgängligt vid eventområdet (Stora Torget) samt på Estrad.",
-                    "keywords": ["toalett", "wc", "toa", "badrum"]
-                },
-                {
-                    "question": "Är banorna kontrollmätta?",
-                    "answer": "Ja! Vår 5 och 10 km bana är kontrollmätt av banmätare från Svensk Friidrott och garanteras vara av korrekt längd. Löploppen har också beviljats sanktion vilket innebär att tävlingen är godkänd och följer upprättade regler samt att resultat från tävlingsklasserna blir giltiga för resultat och rekord.",
-                    "keywords": ["banmätning", "kontrollmätt", "sanktion", "svensk friidrott", "godkänd", "rekord", "banlängd"]
-                },
-                {
-                    "question": "Vad händer om jag är långsam löpare?",
-                    "answer": "Du är välkommen oavsett tempo! Men om du planerar att ta det mycket lugnt (över 45 min på 5 km eller över 1h 20 min på 10 km) kan vi inte garantera att flaggvakterna står kvar hela tiden. Vi rekommenderar att du tar del av kartorna på vår hemsida i förväg eller tar en bild och har med dig.",
-                    "keywords": ["långsam", "långsamt tempo", "gå", "promenad", "flaggvakter", "karta"]
-                }
-            ];
+            // Load data from external JSON file
+            const response = await fetch('chatbot-data.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            this.data = await response.json();
             
             // Initialize Fuse.js for fuzzy search
             this.fuse = new Fuse(this.data, {
@@ -270,7 +133,7 @@ class RunningLightsChatbot {
                 ignoreLocation: true
             });
             
-            console.log('Chatbot data loaded successfully');
+            console.log('Chatbot data loaded successfully from JSON file');
         } catch (error) {
             console.error('Error loading chatbot data:', error);
             this.addBotMessage('Ursäkta, jag har problem att ladda min kunskapsbas just nu. Försök igen senare eller kontakta oss direkt.');

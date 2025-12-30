@@ -1,0 +1,77 @@
+[
+  {
+    "question": "När är Running Lights 2026?",
+    "answer": "Running Lights 2026 äger rum lördagen den 10 oktober 2026. Det är Sveriges mysigsta lopp som går under Lights in Alingsås ljusfestival.",
+    "keywords": ["datum", "när", "2026", "10 oktober", "lördag", "tid"]
+  },
+  {
+    "question": "Vilka distanser finns det?",
+    "answer": "Vi erbjuder 6 olika distanser: Maxi-Knatteloppet (300m) för barn födda 2019 och senare, Energiloppet (600m) för barn födda 2015 och senare, Ungdomsloppet (1660m) för födda 2009 och senare, Stafett (3x1660m med 3 personer per lag), 5km och 10km. Det finns något för alla åldrar och nivåer!",
+    "keywords": ["distanser", "lopp", "längd", "km", "meter", "knatteloppet", "maxi-knatteloppet", "energiloppet", "ungdomsloppet", "stafett"]
+  },
+  {
+    "question": "Hur anmäler jag mig?",
+    "answer": "Anmälan görs via RaceID på raceid.com/sv/races/13275 eller via RaceID-appen. Sista anmälningsdag till ordinarie pris är 20 september 2026. Efteranmälan kan göras online eller på plats på Estrad (Bryggerigatan 2) från kl 13:00 på tävlingsdagen, senast 60 minuter innan start.",
+    "keywords": ["anmälan", "registrering", "anmäla", "raceid", "hur", "efteranmälan", "sista dag"]
+  },
+  {
+    "question": "Var är start och mål?",
+    "answer": "Start och mål är vid Estrad på Bryggerigatan 2 i centrala Alingsås. Området är centralt beläget med närhet till caféer, restauranger och Alingsås tågstation (ca 5 minuters promenad).",
+    "keywords": ["start", "mål", "plats", "var", "estrade", "bryggerigatan", "alingsås"]
+  },
+  {
+    "question": "Vad kostar det att delta?",
+    "answer": "Priserna varierar beroende på distans och när du anmäler dig. Maxi-Knatteloppet är gratis, Energiloppet kostar 150kr, Ungdomsloppet 200kr, Stafett 600kr per lag, 5km 300kr och 10km 400kr. Priserna gäller vid anmälan före 20 september. Efteranmälan kan tillkomma.",
+    "keywords": ["pris", "kostnad", "avgift", "pengar", "betala", "gratis"]
+  },
+  {
+    "question": "Vilka åldrar gäller för olika lopp?",
+    "answer": "Maxi-Knatteloppet (300m): födda 2019 och senare. Energiloppet (600m): födda 2015 och senare. Ungdomsloppet (1660m): födda 2009 och senare. Stafett, 5km och 10km: födda 2008 och tidigare (eller yngre med dispens).",
+    "keywords": ["ålder", "född", "år", "ungdom", "barn", "vuxen", "åldersgräns"]
+  },
+  {
+    "question": "Finns det omklädningsrum?",
+    "answer": "Ja, det finns omklädningsrum och möjlighet att lämna väskor vid start/mål-området på Estrad. Vi rekommenderar att du märker dina tillhörigheter med namn och startnummer.",
+    "keywords": ["omklädningsrum", "ombyte", "väska", "förvaring", "lämna", "dusch"]
+  },
+  {
+    "question": "Kan man springa med stavar?",
+    "answer": "Ja, stavar är tillåtna i alla löparklasser. Se till att stavar är märkta med ditt startnummer. Vid stafett gäller att max en person per lag får använda stavar samtidigt.",
+    "keywords": ["stavar", "käppar", "nordic walking", "utrustning", "hjälpmedel"]
+  },
+  {
+    "question": "Vad är Lights in Alingsås?",
+    "answer": "Lights in Alingsås är en årlig ljusfestival i november/december där konstnärer dekorerar Alingsås stad med ljusinstallationer. Running Lights är en del av denna festival och ger en unik löparupplevelse med vackert belysta gator och stämning.",
+    "keywords": ["lights", "festival", "ljus", "alingsås", "dekorering", "installationer"]
+  },
+  {
+    "question": "Hur fungerar stafetten?",
+    "answer": "Stafetten går 3x1660m med 3 personer per lag. Varje löpare springer en varv på 1660m. Växling sker vid start/mål-området. Alla lagmedlemmar måste vara födda 2008 eller tidigare. Anmälan görs som lag via RaceID.",
+    "keywords": ["stafett", "lag", "växling", "team", "3x1660m", "varv"]
+  },
+  {
+    "question": "Finns det kaffe/mat efter loppet?",
+    "answer": "Ja! Löparmässan pågår 10-18 med utställare och försäljning. Det finns även möjlighet att köpa mat och dryck i området. Många caféer och restauranger i centrala Alingsås har öppet under dagen.",
+    "keywords": ["mat", "dryck", "kaffe", "fika", "restaurang", "café", "efter loppet"]
+  },
+  {
+    "question": "Är banorna kontrollmätta?",
+    "answer": "Ja! Vår 5 och 10 km bana är kontrollmätt av banmätare från Svensk Friidrott och garanteras vara av korrekt längd. Löploppen har också beviljats sanktion vilket innebär att tävlingen är godkänd och följer upprättade regler samt att resultat från tävlingsklasserna blir giltiga för resultat och rekord.",
+    "keywords": ["banmätning", "kontrollmätt", "sanktion", "svensk friidrott", "godkänd", "rekord", "banlängd"]
+  },
+  {
+    "question": "Vad händer om jag är långsam löpare?",
+    "answer": "Du är välkommen oavstånd tempo! Men om du planerar att ta det mycket lugnt (över 45 min på 5 km eller över 1h 20 min på 10 km) kan vi inte garantera att flaggvakterna står kvar hela tiden. Vi rekommenderar att du tar del av kartorna på vår hemsida i förväg eller tar en bild och har med dig.",
+    "keywords": ["långsam", "långsamt tempo", "gå", "promenad", "flaggvakter", "karta"]
+  },
+  {
+    "question": "Var kan jag se kartan?",
+    "answer": "Kartor för alla distanser finns på vår hemsida under 'Karta & Baninfo'. Du kan även ta bild av kartorna på plats vid startområdet. Vi rekommenderar att studera kartan i förväg om du är osäker på banan.",
+    "keywords": ["karta", "bana", "rutt", "väg", "baninfo", "karta", "studera"]
+  },
+  {
+    "question": "Finns det toaletter?",
+    "answer": "Ja, det finns toaletter vid start/mål-området på Estrad. Det finns även flera offentliga toaletter i centrala Alingsås inom kort promenadavstånd från startområdet.",
+    "keywords": ["toalett", "wc", "toilet", "badrum", "faciliteter"]
+  }
+]
