@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Running Lights - Enkel FTP Deploy Script
-# Använder standard ftp-klient (finns på de flesta system)
+# Running Lights - Enkel SFTP Deploy Script
+# Använder standard sftp-klient (finns på de flesta system)
 # Laddar upp alla filer varje gång (enklare men mindre effektivt)
 
 set -e
@@ -13,7 +13,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-echo -e "${BLUE}Running Lights - Enkel FTP Deploy${NC}"
+echo -e "${BLUE}Running Lights - Enkel SFTP Deploy${NC}"
 echo "=================================="
 
 # Kontrollera projektfiler
@@ -22,25 +22,22 @@ if [ ! -f "index.html" ]; then
     exit 1
 fi
 
-# FTP-uppgifter
-read -p "FTP Server (t.ex. ftp.chol.se): " FTP_SERVER
-read -p "FTP Användarnamn: " FTP_USER
-echo -n "FTP Lösenord: "
+# SFTP-uppgifter
+read -p "SFTP Server (t.ex. ssh.chol.se, ssh.runninglights.se): " SFTP_SERVER
+read -p "SFTP Användarnamn: " SFTP_USER
+echo -n "SFTP Lösenord: "
 read -s FTP_PASS
 echo
 
-if [ -z "$FTP_SERVER" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
+if [ -z "$SFTP_SERVER" ] || [ -z "$SFTP_USER" ] || [ -z "$FTP_PASS" ]; then
     echo -e "${RED}❌ Server, användarnamn och lösenord krävs.${NC}"
     exit 1
 fi
 
-echo -e "${YELLOW}📡 Laddar upp filer till $FTP_SERVER/rlng...${NC}"
+echo -e "${YELLOW}📡 Laddar upp filer till $SFTP_SERVER/rlng...${NC}"
 
-# Skapa FTP-kommandofil
-cat > /tmp/ftp_commands << EOF
-open $FTP_SERVER
-user $FTP_USER $FTP_PASS
-binary
+# Skapa SFTP-kommandofil
+cat > /tmp/sftp_commands << EOF
 mkdir rlng
 cd rlng
 put index.html
@@ -53,8 +50,8 @@ put .htaccess
 quit
 EOF
 
-# Kör FTP-uppladdning
-if ftp -n < /tmp/ftp_commands; then
+# Kör SFTP-uppladdning med sshpass för lösenord
+if sshpass -p "$FTP_PASS" sftp -oBatchMode=no -b /tmp/sftp_commands $SFTP_USER@$SFTP_SERVER; then
     echo -e "${GREEN}✅ Uppladdning klar!${NC}"
     echo -e "${BLUE}Webbplatsen borde nu vara tillgänglig på din domän.${NC}"
 else
@@ -63,6 +60,6 @@ else
 fi
 
 # Rensa
-rm -f /tmp/ftp_commands
+rm -f /tmp/sftp_commands
 
 echo -e "${GREEN}🎉 Deploy komplett!${NC}"

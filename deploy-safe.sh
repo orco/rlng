@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Running Lights - Säker FTP Deploy Script
+# Running Lights - Säker SFTP Deploy Script
 # Enkel och robust version som alltid fungerar
 
 set -e
@@ -37,9 +37,9 @@ if ! command -v lftp &> /dev/null; then
     fi
 fi
 
-# FTP-uppgifter
-echo -e "${BLUE}🔐 FTP-inloggning${NC}"
-read -p "FTP Server (t.ex. ftp.chol.se): " FTP_SERVER
+# SFTP-uppgifter
+echo -e "${BLUE}🔐 SFTP-inloggning${NC}"
+read -p "SFTP Server (t.ex. ssh.chol.se, ssh.runninglights.se): " FTP_SERVER
 read -p "Användarnamn: " FTP_USER
 echo -n "Lösenord: "
 read -s FTP_PASS
@@ -54,12 +54,10 @@ echo -e "${YELLOW}📡 Ansluter till $FTP_SERVER...${NC}"
 
 # Enkel och säker lftp-kommando
 lftp -c "
-set ftp:ssl-allow no
-set ssl:verify-certificate no
-set ftp:passive-mode on
 set net:timeout 30
+set sftp:auto-confirm yes
 
-open ftp://$FTP_USER:$FTP_PASS@$FTP_SERVER
+open sftp://$FTP_USER:$FTP_PASS@$FTP_SERVER
 
 # Gå till eller skapa rlng-katalog
 cd rlng || (mkdir rlng && cd rlng)
@@ -97,7 +95,7 @@ if [ $? -eq 0 ]; then
     echo "   • sitemap.xml"
     echo "   • .htaccess"
 else
-    echo -e "${RED}❌ Uppladdning misslyckades. Kontrollera dina FTP-uppgifter.${NC}"
+    echo -e "${RED}❌ Uppladdning misslyckades. Kontrollera dina SFTP-uppgifter.${NC}"
     exit 1
 fi
 

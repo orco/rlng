@@ -26,9 +26,9 @@ if ! command -v lftp &> /dev/null; then
     exit 1
 fi
 
-# FTP-uppgifter
-echo -e "${BLUE}🔐 FTP-inloggning för cleanup${NC}"
-read -p "FTP Server (t.ex. ftp.chol.se): " FTP_SERVER
+# SFTP-uppgifter
+echo -e "${BLUE}🔐 SFTP-inloggning för cleanup${NC}"
+read -p "SFTP Server (t.ex. ssh.chol.se, ssh.runninglights.se): " FTP_SERVER
 read -p "Användarnamn: " FTP_USER
 echo -n "Lösenord: "
 read -s FTP_PASS
@@ -43,12 +43,10 @@ echo -e "${YELLOW}🧹 Rensar onödiga filer från $FTP_SERVER...${NC}"
 
 # Cleanup-kommando
 lftp -c "
-set ftp:ssl-allow no
-set ssl:verify-certificate no
-set ftp:passive-mode on
 set net:timeout 30
+set sftp:auto-confirm yes
 
-open ftp://$FTP_USER:$FTP_PASS@$FTP_SERVER
+open sftp://$FTP_USER:$FTP_PASS@$FTP_SERVER
 
 # Gå till rlng-katalog
 cd rlng

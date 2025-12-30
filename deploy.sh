@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Running Lights - FTP Deploy Script
-# Laddar upp projektet till ftp.chol.se/rlng
+# Running Lights - SFTP Deploy Script
+# Laddar upp projektet till ssh.chol.se/rlng eller ssh.runninglights.se/rlng
 # Endast ändrade filer laddas upp för effektivitet
 
 set -e  # Avsluta vid fel
@@ -17,7 +17,7 @@ NC='\033[0m' # No Color
 echo -e "${BLUE}"
 echo "╔══════════════════════════════════════════════════════════════╗"
 echo "║                  Running Lights Deploy Script                ║"
-echo "║                     FTP Upload till chol.se                  ║"
+echo "║                    SFTP Upload till chol.se                  ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
 
@@ -47,8 +47,8 @@ if ! command -v lftp &> /dev/null; then
 fi
 
 # Fråga efter FTP-uppgifter
-echo -e "${BLUE}🔐 FTP-inloggning${NC}"
-read -p "FTP Server (t.ex. ftp.chol.se): " FTP_SERVER
+echo -e "${BLUE}🔐 SFTP-inloggning${NC}"
+read -p "SFTP Server (t.ex. ssh.chol.se, ssh.runninglights.se): " FTP_SERVER
 read -p "Användarnamn: " FTP_USER
 
 # Läs lösenord utan att visa det
@@ -68,13 +68,11 @@ echo -e "${YELLOW}📡 Ansluter till $FTP_SERVER...${NC}"
 
 # Skapa lftp-script för uppladdning
 cat > /tmp/lftp_script << EOF
-set ftp:ssl-allow no
-set ssl:verify-certificate no
-set ftp:passive-mode on
 set net:timeout 30
 set net:max-retries 3
+set sftp:auto-confirm yes
 
-open ftp://$FTP_USER:$FTP_PASS@$FTP_SERVER
+open sftp://$FTP_USER:$FTP_PASS@$FTP_SERVER
 
 # Skapa rlng-katalog om den inte finns (ignorera fel om den redan finns)
 mkdir $REMOTE_DIR 2>/dev/null || true
@@ -135,7 +133,7 @@ else
     echo "║  Kontrollera:                                                ║"
     echo "║  • Användarnamn och lösenord är korrekta                    ║"
     echo "║  • Internetanslutning fungerar                              ║"
-    echo "║  • FTP-servern är tillgänglig                               ║"
+    echo "║  • SFTP-servern är tillgänglig                              ║"
     echo "╚══════════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
     exit 1

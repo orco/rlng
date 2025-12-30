@@ -20,9 +20,9 @@ Denna webbplats är skapad för att marknadsföra Running Lights 2025 som äger 
 - `styles.css` - All styling och responsiv design
 - `script.js` - JavaScript för interaktivitet och nedräkningstimer
 - `rl2025.pdf` - Officiell informationsbroschyr för Running Lights 2025
-- `deploy.sh` - Avancerat FTP-deploy script med synkronisering
-- `deploy-safe.sh` - Säkert och robust FTP-deploy script (REKOMMENDERAS)
-- `deploy-simple.sh` - Enkelt FTP-deploy script
+- `deploy.sh` - Avancerat SFTP-deploy script med synkronisering
+- `deploy-safe.sh` - Säkert och robust SFTP-deploy script (REKOMMENDERAS)
+- `deploy-simple.sh` - Enkelt SFTP-deploy script
 - `README.md` - Denna fil
 
 ### Funktioner
@@ -147,9 +147,9 @@ För teknisk support eller frågor om webbplatsen:
 
 ## Automatisk Deploy
 
-### FTP-Deploy Scripts
+### SFTP-Deploy Scripts
 
-Projektet innehåller tre deploy-script för att ladda upp webbplatsen till valfri FTP-server:
+Projektet innehåller tre deploy-script för att ladda upp webbplatsen till valfri SFTP-server:
 
 #### 1. Avancerat Script (`deploy.sh`)
 **Rekommenderas** - Använder `lftp` för intelligent synkronisering:
@@ -199,8 +199,8 @@ Använder standard `ftp`-klient (finns på alla system):
    ./deploy.sh
    ```
 
-2. **Ange FTP-uppgifter:**
-   - FTP Server (t.ex. ftp.chol.se, ftp.one.com, etc.)
+2. **Ange SFTP-uppgifter:**
+   - SFTP Server (t.ex. ssh.chol.se, ssh.runninglights.se, etc.)
    - Användarnamn för din hosting-leverantör
    - Lösenord (visas inte när du skriver)
 
@@ -209,16 +209,15 @@ Använder standard `ftp`-klient (finns på alla system):
    - Laddar upp alla webbfiler
    - Visar progress och resultat
 
-### Vanliga FTP-servrar:
+### Vanliga SFTP-servrar:
 
-| Hosting-leverantör | FTP Server | Noteringar |
+| Hosting-leverantör | SFTP Server | Noteringar |
 |-------------------|------------|------------|
-| **Chol.se** | `ftp.chol.se` | Använd ditt Chol-konto |
-| **One.com** | `ftp.one.com` | Använd ditt One.com-konto |
-| **Binero** | `ftp.binero.se` | Eller `ftp.verktyg.binero.se` |
-| **Loopia** | `ftp.loopia.se` | Använd ditt Loopia-konto |
-| **Webhallen** | `ftp.webhallen.com` | Hosting via Webhallen |
-| **GleSYS** | `ftp.glesys.se` | GleSYS hosting |
+| **Chol.se** | `ssh.chol.se` | Använd ditt Chol-konto |
+| **Running Lights** | `ssh.runninglights.se` | Alternativ deploy-target |
+| **One.com** | `ssh.one.com` | Använd ditt One.com-konto |
+| **Binero** | `ssh.binero.se` | Eller `ssh.verktyg.binero.se` |
+| **Loopia** | `ssh.loopia.se` | Använd ditt Loopia-konto |
 
 ### Felsökning Deploy:
 
@@ -226,10 +225,10 @@ Använder standard `ftp`-klient (finns på alla system):
 - **Lösning:** Kör `deploy-simple.sh` istället eller installera lftp manuellt
 
 **Problem:** "Permission denied"
-- **Lösning:** Kontrollera FTP-uppgifter och att kontot har skrivbehörighet
+- **Lösning:** Kontrollera SFTP-uppgifter och att kontot har skrivbehörighet
 
 **Problem:** "Connection failed"
-- **Lösning:** Kontrollera internetanslutning och att FTP-servern är tillgänglig
+- **Lösning:** Kontrollera internetanslutning och att SFTP-servern är tillgänglig
 
 ---
 
