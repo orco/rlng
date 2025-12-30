@@ -98,6 +98,7 @@ mirror --reverse \\
        --exclude-glob .DS_Store \\
        --exclude-glob Thumbs.db \\
        --exclude-glob cleanup-server.sh \\
+       --exclude-glob .htaccess \\
        $LOCAL_DIR .
 
 quit
@@ -123,7 +124,6 @@ if lftp -f /tmp/lftp_script; then
     echo "   • rl2025.pdf"
     echo "   • robots.txt"
     echo "   • sitemap.xml"
-    echo "   • .htaccess"
     
 else
     echo -e "${RED}"

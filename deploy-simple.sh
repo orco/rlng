@@ -46,7 +46,6 @@ put script.js
 put rl2025.pdf
 put robots.txt
 put sitemap.xml
-put .htaccess
 quit
 EOF
 

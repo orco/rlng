@@ -72,7 +72,6 @@ put script.js
 put rl2025.pdf
 put robots.txt
 put sitemap.xml
-put .htaccess
 
 quit
 "
@@ -93,7 +92,6 @@ if [ $? -eq 0 ]; then
     echo "   • rl2025.pdf"
     echo "   • robots.txt"
     echo "   • sitemap.xml"
-    echo "   • .htaccess"
 else
     echo -e "${RED}❌ Uppladdning misslyckades. Kontrollera dina SFTP-uppgifter.${NC}"
     exit 1

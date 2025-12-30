@@ -63,6 +63,7 @@ rm -f .DS_Store 2>/dev/null || true
 rm -f Thumbs.db 2>/dev/null || true
 rm -f *.tmp 2>/dev/null || true
 rm -f *.log 2>/dev/null || true
+rm -f .htaccess 2>/dev/null || true
 
 echo ''
 echo 'Filer efter cleanup:'
@@ -86,6 +87,7 @@ if [ $? -eq 0 ]; then
     echo "   • README.md"
     echo "   • System-filer (.DS_Store, Thumbs.db)"
     echo "   • Temporära filer (*.tmp, *.log)"
+    echo "   • .htaccess (root-only file)"
     
 else
     echo -e "${RED}❌ Cleanup misslyckades.${NC}"
