@@ -74,14 +74,14 @@ set sftp:auto-confirm yes
 
 open sftp://$FTP_USER:$FTP_PASS@$FTP_SERVER
 
-# Skapa rlng-katalog om den inte finns (ignorera fel om den redan finns)
-mkdir $REMOTE_DIR 2>/dev/null || true
+# Skapa rlng-katalog om den inte finns
+mkdir $REMOTE_DIR || true
 
 # Gå till remote directory
 cd $REMOTE_DIR
 
 # Ta bort .git katalog från servern om den finns
-rm -rf .git 2>/dev/null || true
+rm -rf .git || true
 
 # Synkronisera lokala filer till remote
 # --reverse: ladda upp (inte ladda ner) 
@@ -124,6 +124,12 @@ if lftp -f /tmp/lftp_script; then
     echo "   • rl2025.pdf"
     echo "   • robots.txt"
     echo "   • sitemap.xml"
+    echo "   • Knatteloppet.png"
+    echo "   • Energiloppet.jpg"
+    echo "   • Ungdomsloppet.jpg"
+    echo "   • Stafett.png"
+    echo "   • 5km.jpg"
+    echo "   • 10km.jpg"
     
 else
     echo -e "${RED}"

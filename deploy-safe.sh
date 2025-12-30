@@ -72,6 +72,12 @@ put script.js
 put rl2025.pdf
 put robots.txt
 put sitemap.xml
+put Knatteloppet.png
+put Energiloppet.jpg
+put Ungdomsloppet.jpg
+put Stafett.png
+put 5km.jpg
+put 10km.jpg
 
 quit
 "
@@ -92,6 +98,12 @@ if [ $? -eq 0 ]; then
     echo "   • rl2025.pdf"
     echo "   • robots.txt"
     echo "   • sitemap.xml"
+    echo "   • Knatteloppet.png"
+    echo "   • Energiloppet.jpg"
+    echo "   • Ungdomsloppet.jpg"
+    echo "   • Stafett.png"
+    echo "   • 5km.jpg"
+    echo "   • 10km.jpg"
 else
     echo -e "${RED}❌ Uppladdning misslyckades. Kontrollera dina SFTP-uppgifter.${NC}"
     exit 1

@@ -46,11 +46,23 @@ put script.js
 put rl2025.pdf
 put robots.txt
 put sitemap.xml
+put Knatteloppet.png
+put Energiloppet.jpg
+put Ungdomsloppet.jpg
+put Stafett.png
+put 5km.jpg
+put 10km.jpg
 quit
 EOF
 
 # Kör SFTP-uppladdning med sshpass för lösenord
-if sshpass -p "$FTP_PASS" sftp -oBatchMode=no -b /tmp/sftp_commands $SFTP_USER@$SFTP_SERVER; then
+# Use expect as alternative to sshpass to avoid temp directory creation
+if expect -c "
+spawn sftp -oBatchMode=no -b /tmp/sftp_commands $SFTP_USER@$SFTP_SERVER
+expect \"password:\"
+send \"$FTP_PASS\r\"
+expect eof
+" 2>/dev/null; then
     echo -e "${GREEN}✅ Uppladdning klar!${NC}"
     echo -e "${BLUE}Webbplatsen borde nu vara tillgänglig på din domän.${NC}"
 else
