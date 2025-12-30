@@ -20,9 +20,8 @@ Denna webbplats är skapad för att marknadsföra Running Lights 2025 som äger 
 - `styles.css` - All styling och responsiv design
 - `script.js` - JavaScript för interaktivitet och nedräkningstimer
 - `rl2025.pdf` - Officiell informationsbroschyr för Running Lights 2025
-- `deploy.sh` - Avancerat SFTP-deploy script med synkronisering
-- `deploy-safe.sh` - Säkert och robust SFTP-deploy script (REKOMMENDERAS)
-- `deploy-simple.sh` - Enkelt SFTP-deploy script
+- `deploy.sh` - Avancerat SFTP-deploy script med synkronisering (REKOMMENDERAS)
+- `deploy-simple.sh` - Enkelt SFTP-deploy script (fallback utan lftp)
 - `README.md` - Denna fil
 
 ### Funktioner
@@ -149,7 +148,7 @@ För teknisk support eller frågor om webbplatsen:
 
 ### SFTP-Deploy Scripts
 
-Projektet innehåller tre deploy-script för att ladda upp webbplatsen till valfri SFTP-server:
+Projektet innehåller två deploy-script för att ladda upp webbplatsen till valfri SFTP-server:
 
 #### 1. Avancerat Script (`deploy.sh`)
 **Rekommenderas** - Använder `lftp` för intelligent synkronisering:
@@ -165,31 +164,18 @@ Projektet innehåller tre deploy-script för att ladda upp webbplatsen till valf
 - ✅ Detaljerad progress-information
 - ✅ Automatisk installation av lftp om det saknas
 
-#### 2. Säkert Script (`deploy-safe.sh`) ⭐ REKOMMENDERAS
-Robust och säker version som alltid fungerar:
-
-```bash
-./deploy-safe.sh
-```
-
-**Fördelar:**
-- ✅ Enkel och pålitlig
-- ✅ Robust felhantering
-- ✅ Laddar upp alla viktiga filer
-- ✅ Fungerar även om katalogen redan finns
-- ✅ Inga komplexa regex eller synkronisering
-
-#### 3. Enkelt Script (`deploy-simple.sh`)
-Använder standard `ftp`-klient (finns på alla system):
+#### 2. Enkelt Script (`deploy-simple.sh`)
+Använder standard `sftp`-klient (fallback utan lftp-beroende):
 
 ```bash
 ./deploy-simple.sh
 ```
 
 **Fördelar:**
-- ✅ Fungerar utan extra paket
+- ✅ Fungerar utan extra paket (lftp)
 - ✅ Enkel och pålitlig
 - ❌ Laddar upp alla filer varje gång
+- ❌ Kräver `expect` för lösenordshantering
 
 ### Användning:
 
