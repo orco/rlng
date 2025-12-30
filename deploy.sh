@@ -130,6 +130,14 @@ if lftp -f /tmp/lftp_script; then
     echo "   • Stafett.png"
     echo "   • 5km.jpg"
     echo "   • 10km.jpg"
+    echo "   • karta-maxi-knatte-300m.jpg"
+    echo "   • karta-energiloppet-600m.jpg"
+    echo "   • karta-ungdomsloppet-stafett-1660m.jpg"
+    echo "   • karta-5km-10km.jpg"
+    echo "   • karta-ungdomsloppet-stafett-1660m-big.jpg"
+    echo "   • karta-maxi-knatte-300m-big.jpg"
+    echo "   • karta-energiloppet-600m-big.jpg"
+    echo "   • karta-5km-10km-big.jpg"
     
 else
     echo -e "${RED}"

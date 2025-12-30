@@ -52,6 +52,14 @@ put Ungdomsloppet.jpg
 put Stafett.png
 put 5km.jpg
 put 10km.jpg
+put karta-maxi-knatte-300m.jpg
+put karta-energiloppet-600m.jpg
+put karta-ungdomsloppet-stafett-1660m.jpg
+put karta-5km-10km.jpg
+put karta-ungdomsloppet-stafett-1660m-big.jpg
+put karta-maxi-knatte-300m-big.jpg
+put karta-energiloppet-600m-big.jpg
+put karta-5km-10km-big.jpg
 quit
 EOF
 
